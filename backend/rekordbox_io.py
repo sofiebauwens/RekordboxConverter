@@ -8,6 +8,7 @@ from typing import Optional
 
 from mutagen.mp3 import MP3
 from pyrekordbox import Rekordbox6Database
+from pyrekordbox.config import get_pioneer_app_dir
 from pyrekordbox.utils import get_rekordbox_pid
 
 PLAYLIST_NAME = "YouTube Imports"
@@ -23,8 +24,12 @@ def is_rekordbox_running() -> bool:
 
 
 def _db_path() -> Path:
-    import os
-    return Path(os.environ["APPDATA"]) / "Pioneer" / "rekordbox" / "master.db"
+    """Locate rekordbox 6's master.db cross-platform.
+
+    get_pioneer_app_dir() resolves the Pioneer application directory per OS
+    (``%APPDATA%/Pioneer`` on Windows, ``~/Library/Pioneer`` on macOS).
+    """
+    return Path(get_pioneer_app_dir()) / "rekordbox" / "master.db"
 
 
 def backup_database() -> Optional[Path]:

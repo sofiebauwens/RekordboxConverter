@@ -91,16 +91,17 @@ Then open **<http://127.0.0.1:8000>** in your browser.
 
 ## Platform support
 
-| Feature | Windows | macOS / Linux |
+| Feature | Windows | macOS |
 |---|---|---|
 | Download + convert to tagged MP3 | ✅ | ✅ |
-| Add directly to rekordbox library | ✅ | ⚠️ not yet |
+| Add directly to rekordbox library | ✅ | ✅ |
 
-The library-write step currently locates the rekordbox database via the Windows
-`%APPDATA%` path. macOS/Linux support (where the rekordbox DB lives under
-`~/Library/Pioneer/rekordbox/`) isn't wired up yet — **contributions welcome!**
-In the meantime, macOS/Linux users can still use the app to download and tag MP3s,
-then drag them into rekordbox manually.
+The rekordbox database is located automatically per OS (via pyrekordbox's
+`get_pioneer_app_dir()` — `%APPDATA%/Pioneer` on Windows, `~/Library/Pioneer` on
+macOS), so the same code works on both.
+
+> **Linux:** rekordbox itself isn't available on Linux, so the "Add to library"
+> step doesn't apply. You can still use the app to download and tag MP3s.
 
 ---
 
