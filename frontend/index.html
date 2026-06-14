@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube → Rekordbox</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <main class="app">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-mark">▶</span>
+        <h1>YouTube <span class="arrow">→</span> Rekordbox</h1>
+      </div>
+      <div id="rb-status" class="rb-status checking">
+        <span class="dot"></span><span class="label">checking…</span>
+      </div>
+    </header>
+
+    <section class="card input-card">
+      <label class="field-label" for="url">Paste a YouTube link</label>
+      <div class="url-row">
+        <input id="url" type="text" placeholder="https://www.youtube.com/watch?v=…" autocomplete="off" spellcheck="false" />
+        <button id="fetch-btn" class="btn btn-secondary">Fetch</button>
+      </div>
+      <p id="input-error" class="error-text" hidden></p>
+    </section>
+
+    <section id="preview" class="card preview-card" hidden>
+      <div class="preview-top">
+        <img id="thumb" class="thumb" alt="cover" />
+        <div class="meta">
+          <div class="field">
+            <label for="title">Title</label>
+            <input id="title" type="text" />
+          </div>
+          <div class="field">
+            <label for="artist">Artist</label>
+            <input id="artist" type="text" />
+          </div>
+          <div id="duration" class="duration"></div>
+        </div>
+      </div>
+      <button id="add-btn" class="btn btn-primary">
+        <span class="btn-text">Add to Rekordbox</span>
+      </button>
+
+      <div id="progress" class="progress" hidden>
+        <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+        <div id="progress-msg" class="progress-msg"></div>
+      </div>
+    </section>
+
+    <section class="recent">
+      <h2>Recently added</h2>
+      <div id="recent-list" class="recent-list">
+        <p class="empty">Nothing yet — add your first track above.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

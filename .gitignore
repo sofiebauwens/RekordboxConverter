@@ -1,0 +1,9 @@
+# Personal rekordbox library snapshots — do not publish
+db_backups/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
